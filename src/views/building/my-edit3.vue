@@ -15,10 +15,7 @@
             </el-form-item>
 
             <el-form-item label="添加相册图片:">
-<el-upload action="https://salesv2-ccw-test.colourlife.com/upload/image/650" name="photo" enctype="multipart/form-data" 
-
-  method="post" list-type="picture-card" :on-preview="handlePictureCardPreview">
-
+                <el-upload action="http://localhost:8080/parking/public/upload/image/650" name="photo" enctype="multipart/form-data" method="post" list-type="picture-card" :on-preview="handlePictureCardPreview">
 
                     <i class="el-icon-plus"></i>
                 </el-upload>
@@ -65,17 +62,22 @@
 
             </el-form-item>
             <el-form-item label="添加户型图片:">
-<el-upload action="https://salesv2-ccw-test.colourlife.com/upload/image/650" list-type="picture-card" :on-preview="handlePictureCardPreview">
+                <form action="https://salesv2-ccw-test.colourlife.com/upload/image/650" method="post" enctype="multipart/form-data">
+                    <input type="file" name="photo">
+                    <button>提交</button>
+                </form>
+
+                <!-- <el-upload action="http://192.168.21.225/parking/public/upload/image" list-type="picture-card" :on-preview="handlePictureCardPreview">
 
                     <i class="el-icon-plus"></i>
-                </el-upload>
+                </el-upload> -->
                 <el-dialog>
                     <img width="100%" :src="dialogImageUrl" alt="">
                 </el-dialog>
             </el-form-item>
             <el-form-item label="添加效果图图片:">
                 <!-- <el-upload action="#" list-type="picture-card" :auto-upload="false"> -->
-                <el-upload action="#" list-type="picture-card" >
+                <el-upload action="#" list-type="picture-card">
                     <i slot="default" class="el-icon-plus"></i>
                     <div slot="file" slot-scope="{file}">
                         <img class="el-upload-list__item-thumbnail" :src="file.url" alt="">
@@ -105,6 +107,8 @@
     </div>
 </template>
 <script>
+import httpClient from '@/utils/request'
+
 export default {
     data() {
         return {
@@ -139,17 +143,14 @@ export default {
         // console.log(this.$route.params.id)
     },
     methods: {
- myRequest(file){
-console.log(file);
-
-
- },
+        myRequest(file) {
+            console.log(file)
+        },
 
         onSubmit() {
             console.log('上传')
         },
-        
-        
+
         handleClose(tag) {
             this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
         },
@@ -168,9 +169,16 @@ console.log(file);
             this.inputValue = ''
         },
         addCategary() {
-            this.api.addPhoto({
-                //  params:{name:}
-            })
+            httpClient
+                .post('admin/add/album/category', {
+                    name: '2',
+                })
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
         },
         handleRemove(file) {
             console.log(file)

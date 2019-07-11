@@ -29,6 +29,14 @@
 
             </el-form-item>
 
+            <el-form-item label="开盘状态" >
+                <el-radio-group v-model="form.status">
+                    <el-radio :label="1">已开盘</el-radio>
+                    <el-radio :label="2">未开盘</el-radio>
+                    <el-radio :label="3">已售罄</el-radio>
+                </el-radio-group>
+            </el-form-item>
+
             <el-form-item label="开盘">
                 <el-col :span="11" class="my-input">
 
@@ -53,7 +61,7 @@
             </el-form-item>
 
             <el-form-item class="my-right">
-<div>楼盘列表图片：</div>
+                <div>楼盘列表图片：</div>
 
                 <el-upload action="#" list-type="picture-card" :auto-upload="false" :file-list="fileList">
 
@@ -76,7 +84,7 @@
 
             </el-form-item>
             <el-form-item class="my-right2">
-<div>楼盘首页图片：</div>
+                <div>楼盘首页图片：</div>
 
                 <el-upload action="#" list-type="picture-card" :auto-upload="false" :file-list="fileList">
 
@@ -124,6 +132,7 @@ export default {
                 desc2: '',
                 inputValue: '',
                 dynamicTags: ['公交直达', '地铁旁', '绿化率高'],
+                status: '',
             },
             //自动上传
             fileList: [],
@@ -167,8 +176,8 @@ export default {
             console.log(file)
         },
         handlePictureCardPreview(file) {
-            console.log(file);
-            
+            console.log(file)
+
             this.dialogImageUrl = file.url
             this.dialogVisible = true
         },
@@ -197,11 +206,11 @@ export default {
     top: 0;
     left: 450px;
 }
-.my-right2{
- position: absolute; top: 314px; left: 450px;
-
+.my-right2 {
+    position: absolute;
+    top: 314px;
+    left: 450px;
 }
-
 
 .el-tag + .el-tag {
     margin-left: 10px;
