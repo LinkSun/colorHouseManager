@@ -34,8 +34,14 @@
             </el-form-item>
 
             <el-form-item label="是否属于饭票宝项目:">
-                <el-radio v-model="form.radio" label="1">是</el-radio>
-                <el-radio v-model="form.radio" label="2">否</el-radio>
+                <!-- <el-radio v-model="form.radio" label="1">是</el-radio>
+                <el-radio v-model="form.radio" label="2">否</el-radio> -->
+<el-radio-group v-model="form.status">
+  <el-radio :label="1">是</el-radio>
+  <el-radio :label="2">否</el-radio>
+
+</el-radio-group>
+
 
             </el-form-item>
             <el-form-item label="尊享饭票项目id:">
@@ -54,6 +60,8 @@
     </div>
 </template>
 <script>
+import httpClient from '@/utils/request'
+
 export default {
     data() {
         return {
@@ -116,7 +124,7 @@ export default {
 </script>
 <style>
 .my-input {
-    width: 300px;
+    width: 200px;
 }
 
 .my-input1 {

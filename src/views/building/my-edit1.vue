@@ -116,6 +116,8 @@
     </div>
 </template>
 <script>
+import httpClient from '@/utils/request'
+
 export default {
     data() {
         return {

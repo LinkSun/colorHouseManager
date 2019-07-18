@@ -15,7 +15,7 @@
                 </el-form-item>
                 <el-form-item label="产权性质" required>
                     <el-select v-model="form.property_right" placeholder="请选择车位产权" :disabled="disabled">
-                        <el-option v-for="(item, index) in parkingRightType" :key="index" :label="item" :value="index"></el-option>
+                        <el-option v-for="(item, index) in parkingRightType" :key="index" :label="item" :value="parseInt(index)"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="靠近楼栋">

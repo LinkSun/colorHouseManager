@@ -180,14 +180,14 @@
                 </template>
             </el-table-column>
             
-             <!-- <el-table-column align="center" label="销售价格">
+             <el-table-column align="center" label="销售价格">
                 <template scope="scope">
                     <span>{{scope.row.sale_price}}</span>
                 </template>
-            </el-table-column> -->
+            </el-table-column>
             <el-table-column align="center" width="130" label="现金减免额度">
                 <template scope="scope">
-                    <span>{{scope.row.cash_offer_amount/ 100 | rounding}}</span>
+                    <span>{{scope.row.cash_offer_amount/ 1 | rounding}}</span>
                 </template>
             </el-table-column>
 

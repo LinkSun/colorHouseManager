@@ -204,13 +204,13 @@ export const constantRouterMap = [
         component: () => import('@/views/order/detail'),
         meta: { title: '订单详情', icon: '' },
         hidden: true
+      },
+      {
+        path: 'stagesPayment',
+        name: 'stagesPayment',
+        component: () => import('@/views/order/stagesPayment'),
+        meta: { title: '分期扣款订单', icon: '' }
       }
-      // {
-      //   path: 'stagesPayment',
-      //   name: 'stagesPayment',
-      //   component: () => import('@/views/order/stagesPayment'),
-      //   meta: { title: '分期扣款订单', icon: '' }
-      // }
       
     ]
   },
@@ -375,57 +375,73 @@ export const constantRouterMap = [
         meta: { title: '楼盘编辑', icon: '' },
         hidden: true
       },
+      // 开始增加了我的路由--huanggengzhong
       {
         path: 'my-edit',
         name: 'my-router1',
-        component: () => import('@/views/building/my-edit'),
-        meta: { title: '项目操作', icon: '' },
+        component: () =>
+          import ('@/views/building/my-edit'),
+        meta: {
+          title: '项目操作',
+          icon: ''
+        },
         hidden: true,
-        children:[
-          {
-            path:"my-edit1",
-            name:"my-router1-1",
-            component: () => import('@/views/building/my-edit1'),
-            meta: { title: '项目操作' },
+        children: [{
+            path: "my-edit1",
+            name: "my-router1-1",
+            component: () =>
+              import ('@/views/building/my-edit1'),
+            meta: {
+              title: '项目操作'
+            },
             hidden: true,
           },
           {
-            path:"my-edit2",
-            name:"my-router1-2",
-            component: () => import('@/views/building/my-edit2'),
-            meta: { title: '购房荐房福利' },
+            path: "my-edit2",
+            name: "my-router1-2",
+            component: () =>
+              import ('@/views/building/my-edit2'),
+            meta: {
+              title: '购房荐房福利'
+            },
             hidden: true,
           },
           {
-            path:"my-edit3",
-            name:"my-router1-3",
-            component: () => import('@/views/building/my-edit3'),
-            meta: { title: '项目相册', icon: '' },
+            path: "my-edit3",
+            name: "my-router1-3",
+            component: () =>
+              import ('@/views/building/my-edit3'),
+            meta: {
+              title: '项目相册',
+              icon: ''
+            },
             hidden: true,
           },
           {
-            path:"my-edit4",
-            name:"my-router1-4",
-            component: () => import('@/views/building/my-edit4'),
-            meta: { title: '项目详情', icon: '' },
+            path: "my-edit4",
+            name: "my-router1-4",
+            component: () =>
+              import ('@/views/building/my-edit4'),
+            meta: {
+              title: '项目详情',
+              icon: ''
+            },
             hidden: true,
           },
           {
-            path:"my-edit5",
-            name:"my-router1-5",
-            component: () => import('@/views/building/my-edit5'),
-            meta: { title: '对接设置', icon: '' },
+            path: "my-edit5",
+            name: "my-router1-5",
+            component: () =>
+              import ('@/views/building/my-edit5'),
+            meta: {
+              title: '对接设置',
+              icon: ''
+            },
             hidden: true,
           },
         ]
       },
-      // {
-      //   path: "my-edit1",
-      //   component: () => import('@/views/building/my-edit1'),
-      //   meta: { title: '项目操作', icon: '' },
-      //   hidden: true,
-      // },
-
+      //结束增加了我的路由--huanggengzhong
       {
         path: 'detail/:id',
         name: 'buildingDetail',
