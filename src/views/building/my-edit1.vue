@@ -1,11 +1,11 @@
 <template>
     <div class="my-comtaint">
         <el-form ref="form" :model="form" label-width="80px">
-            <el-form-item label="楼盘名称">
+            <el-form-item label="楼盘名称:">
                 <el-input v-model="form.name" class="my-input"></el-input>
             </el-form-item>
 
-            <el-form-item label="标签">
+            <el-form-item label="标签:">
                 <el-tag :key="tag" v-for="tag in form.dynamicTags" closable :disable-transitions="false" @close="handleClose(tag)">
                     {{tag}}
                 </el-tag>
@@ -14,22 +14,22 @@
                 <el-button v-else class="button-new-tag" size="small" @click="showInput">+</el-button>
             </el-form-item>
 
-            <el-form-item label="参考均价">
+            <el-form-item label="参考均价:">
                 <el-input v-model="form.money" class="my-input"></el-input>&nbsp;元/m2
 
             </el-form-item>
 
-            <el-form-item label="建筑类型">
+            <el-form-item label="建筑类型:">
                 <el-input v-model="form.categery" class="my-input"></el-input>
             </el-form-item>
 
-            <el-form-item label="建面">
-                <el-input v-model="form.area1" class="area"></el-input>~
+            <el-form-item label="建面:">
+                <el-input v-model="form.area1" class="area"></el-input> ~
                 <el-input v-model="form.area2" class="area"></el-input>&nbsp;m2
 
             </el-form-item>
 
-            <el-form-item label="开盘状态" >
+            <el-form-item label="开盘状态:" >
                 <el-radio-group v-model="form.status">
                     <el-radio :label="1">已开盘</el-radio>
                     <el-radio :label="2">未开盘</el-radio>
@@ -37,7 +37,7 @@
                 </el-radio-group>
             </el-form-item>
 
-            <el-form-item label="开盘">
+            <el-form-item label="开盘:">
                 <el-col :span="11" class="my-input">
 
                     <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
@@ -46,17 +46,17 @@
 
             </el-form-item>
 
-            <el-form-item label="户型">
+            <el-form-item label="户型:">
                 <el-input v-model="form.huxing" class="my-input"></el-input>
             </el-form-item>
-            <el-form-item label="产权">
+            <el-form-item label="产权:">
                 <el-input v-model="form.years" class="my-input"></el-input>
             </el-form-item>
 
-            <el-form-item label="详细地址">
+            <el-form-item label="详细地址:">
                 <el-input type="textarea" v-model="form.desc1" rows="3" cols="10" class="my-input1"></el-input>
             </el-form-item>
-            <el-form-item label="项目介绍">
+            <el-form-item label="项目介绍:">
                 <el-input type="textarea" v-model="form.desc2" rows="10" cols="20" class="my-input1"></el-input>
             </el-form-item>
 
