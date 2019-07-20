@@ -3,7 +3,7 @@
         <el-form ref="form" :model="form" label-width="145px">
 
             <el-form-item label="楼盘来源:">
-                <el-select v-model="form.region" placeholder="请选择相册分类" class="my-input">
+                <el-select v-model="form.region"  class="my-input">
                     <el-option label="效果图" value="shanghai"></el-option>
                     <el-option label="沙盘" value="beijing"></el-option>
                     <el-option label="户型" value="beijing1"></el-option>
@@ -11,11 +11,10 @@
                 </el-select>
             </el-form-item>
             <el-form-item label="是否需要签到:">
-                <el-select v-model="form.region" placeholder="请选择相册分类" class="my-input">
-                    <el-option label="效果图" value="shanghai"></el-option>
-                    <el-option label="沙盘" value="beijing"></el-option>
-                    <el-option label="户型" value="beijing1"></el-option>
-                    <el-option label="周边" value="beijing2"></el-option>
+                <el-select v-model="form.region"  class="my-input">
+                    <el-option label="需要" value="shanghai"></el-option>
+                    <el-option label="不需要" value="beijing"></el-option>
+                   
                 </el-select>
             </el-form-item>
 

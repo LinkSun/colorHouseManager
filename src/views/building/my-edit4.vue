@@ -1,5 +1,5 @@
 <template>
-<!-- 这个页面交互已经完成 -->
+    <!-- 这个页面交互已经完成 -->
     <div>
         <!-- 1 -->
         <h4 class="title">楼盘信息</h4>
@@ -195,7 +195,9 @@ export default {
         }
     },
     mounted() {
-        this.bid = this.$route.params.id
+        this.bid = this.$route.params.id;
+ this.getMounte();
+
     },
     methods: {
         submitForm(formName) {
@@ -214,7 +216,40 @@ export default {
         resetForm(formName) {
             this.$refs[formName].resetFields()
         },
+        getMounte() {
+            httpClient
+                .get(`admin/specification?bid=${this.bid}`)
+                .then(res => {
+                    console.log(res)
+
+                    this.ruleForm.reference_price = res.content.reference_price
+                    this.ruleForm.total_price = res.content.total_price
+                    this.ruleForm.house_type = res.content.house_type
+                    this.ruleForm.sales_office = res.content.sales_office
+                    this.ruleForm.building_type = res.content.building_type
+                    this.ruleForm.renovation = res.content.renovation
+                    this.ruleForm.developer = res.content.developer
+                    this.ruleForm.far = res.content.far
+                    this.ruleForm.greening = res.content.greening
+                    this.ruleForm.planning_user = res.content.planning_user
+                    this.ruleForm.floor_condition = res.content.floor_condition
+                    this.ruleForm.cover_area = res.content.cover_area
+                    this.ruleForm.floor_space = res.content.floor_space
+                    this.ruleForm.progress = res.content.progress
+                    this.ruleForm.management_fee = res.content.management_fee
+                    this.ruleForm.cars_num = res.content.cars_num
+                    this.ruleForm.cars_rate = res.content.cars_rate
+                    this.ruleForm.preselling_license = res.content.preselling_license
+                    this.ruleForm.issuing_time = res.content.issuing_time
+                    this.ruleForm.binding = res.content.binding
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+
         //调用后台接口
+
         addCategary() {
             httpClient
                 .post('admin/add/specification', {

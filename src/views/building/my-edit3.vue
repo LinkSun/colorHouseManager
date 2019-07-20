@@ -292,9 +292,9 @@ this.dynamicTags=['公交直达']
                     name: this.form.hxValue,
                 })
                 .then(res => {
-                    console.log(res)
+                    console.log(res);
                     //重新调用获取
-                    this.getMount()
+                    this.getMount();
                     if (res.code === 0) {
                         this.$message({ message: res.message, type: 'success' })
                     } else {
@@ -303,7 +303,7 @@ this.dynamicTags=['公交直达']
                             type: 'warning',
                         })
                     }
-                    this.form.hxValue = ''
+                    this.form.hxValue = '';
                 })
                 .catch(err => {
                     console.log(err)
@@ -350,6 +350,11 @@ this.dynamicTags=['公交直达']
                     console.log(res)
                     if (res.code === 0) {
                         this.$message({ message: res.message, type: 'success' })
+                        // 清除数据
+                         this.imagesValue=[];
+
+                     this.form.area1='';
+                     this.dynamicTags=['公交直达'];
                     } else {
                         this.$message({
                             message: res.message,
