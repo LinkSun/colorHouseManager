@@ -310,7 +310,16 @@ export const constantRouterMap = [
         name: 'bookingList',
         component: () => import('@/views/house/bookingList'),
         meta: { title: '预约列表', icon: '' }
-      },{
+      },
+      // gengzhong增加的
+      {
+        path: 'banner',
+        name: 'bannerList',
+        component: () => import('@/views/house/bannerList'),
+        meta: { title: 'banner添加', icon: '' }
+      },
+      // gengzhong增加的
+      {
         path: 'tuijianbooking',
         name: 'tuijianbookingList',
         component: () => import('@/views/house/tuijianbookingList'),
