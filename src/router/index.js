@@ -305,13 +305,21 @@ export const constantRouterMap = [
         name: 'proprietorList',
         component: () => import('@/views/house/list-proprietor'),
         meta: { title: '业主信息', icon: '' }
-      },{
+      },
+      {
         path: 'booking',
         name: 'bookingList',
         component: () => import('@/views/house/bookingList'),
         meta: { title: '预约列表', icon: '' }
       },
       // gengzhong增加的
+      
+      {
+        path: 'banner2',
+        name: 'bannerList2',
+        component: () => import('@/views/house/bannerList2'),
+        meta: { title: 'banner配置', icon: '' }
+      },
       {
         path: 'banner',
         name: 'bannerList',

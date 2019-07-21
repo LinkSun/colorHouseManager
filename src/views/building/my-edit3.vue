@@ -164,7 +164,7 @@ export default {
             imagesValue: [],
             tagtValue: '',
 
-            bid: '',
+            bid: 0,
             inputValue: '', //客户选择的值
             isShow2: true,
             isShow: false,
@@ -218,7 +218,7 @@ status:'',
                 radio: 1,
                 region2: '',
             },
-            dialogImageUrl: '',
+          
             dialogVisible: false,
             dynamicTags: ['公交直达'],
             inputVisible: false,
@@ -229,10 +229,15 @@ status:'',
             disabled: false,
         }
     },
+    created() {
+        const params=this.$route.params;
+        this.bid=parseInt(params.id)
+        console.log(this.bid)
+    },
     mounted() {
         // 可以得到id
         // console.log(this.$route.params.id)
-        this.bid = this.$route.params.id
+        // this.bid = this.$route.params.id
 
         this.getMount()
     },
