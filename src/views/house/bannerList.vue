@@ -10,7 +10,10 @@
             </el-form-item>
             <el-form-item label="图片:" required>
 
-                <el-upload action="https://salesv2-ccw-test.colourlife.com/upload/image/5" list-type="picture-card" :auto-upload="true" name="photo" :on-success="mySuccess">
+                
+                <!-- <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :limit="1" :on-exceed="handleExceed" :auto-upload="true" name="photo" :on-success="mySuccess"> -->
+                
+                <el-upload action="https://salesv2-ccw-test.colourlife.com/upload/image/5" list-type="picture-card" :limit="1" :on-exceed="handleExceed" :auto-upload="true" name="photo" :on-success="mySuccess">
                     <i slot="default" class="el-icon-plus"></i>
                     <div slot="file" slot-scope="{file}">
                         <img class="el-upload-list__item-thumbnail" :src="file.url" alt="">
@@ -32,7 +35,7 @@
 
             <el-form-item label="跳转链接:" class='my-width' required>
 
-<el-input v-model="form.address"></el-input>
+                <el-input v-model="form.address"></el-input>
 
             </el-form-item>
 
@@ -64,66 +67,80 @@
 </template>
 
 <script>
-import httpClient from '@/utils/request';
+import httpClient from '@/utils/request'
 
 export default {
-    name:'banner',
-    data() {
-        return {
-            value1: '', //时间
- imagesValue: 'test.com',
+  name: 'banner',
+  data() {
+    return {
+      value1: '', //时间
+      imagesValue: '',
 
+      form: {
+        name: '', //楼盘名称
+        address: '', //链接
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      }
+    }
+  },
+  methods: {
+      handleExceed(){
+          this.$message.warning("一次只能上传一张哦")
+      },
+    onSubmit() {
+      console.log('submit!')
 
-            form: {
-                name: '',//楼盘名称
-                address: '',//链接
-                region: '',
-                date1: '',
-                date2: '',
-                delivery: false,
-                type: [],
-                resource: '',
-                desc: '',
-            },
-        }
-    },
-    methods: {
-        onSubmit() {
-            console.log('submit!')
- httpClient.post('admin/add/banner',{
-     name:this.form.name,
- image:this.imagesValue,
+      // 非空判断
+      if (
+        this.form.name == '' ||
+        this.imagesValue == '' ||
+        this.form.address == '' ||
+        this.value1 ==''
+      ) {
+        alert('请填写完整哦')
+        return
+      } else {
+        httpClient
+          .post('admin/add/banner', {
+            name: this.form.name,
+            image: this.imagesValue,
 
-     url:this.form.address,
-     put_time:this.value1[0],
-     pull_time:this.value1[1],
- }).then(res=>{
-     console.log(res);
-     
- }).catch()
-
-
-        },
-        mySuccess(res) {
-            console.log('进到这里,已上传')
-
+            url: this.form.address,
+            put_time: this.value1[0],
+            pull_time: this.value1[1]
+          })
+          .then(res => {
             console.log(res)
-            this.imagesValue.push(res.content.photoPath)
-        },
-        handlePictureCardPreview(file) {
-            this.dialogImageUrl = file.url
-            this.dialogVisible = true
-        },
+          })
+          .catch()
+      }
     },
+    mySuccess(res) {
+      console.log('进到这里,已上传')
+
+      console.log(res)
+      this.imagesValue=res.content.photoPath;
+    },
+    handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url
+      this.dialogVisible = true
+    }
+  }
 }
 </script>
 <style>
 .banner-containt {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .my-width {
-    width: 500px;
+  width: 500px;
 }
 </style>
 

@@ -396,14 +396,14 @@ export const constantRouterMap = [
       {
         path: 'my-edit',
         name: 'my-router1',
-        component: () =>
-          import ('@/views/building/my-edit'),
+        component: () => import('@/views/building/my-edit'),
         meta: {
           title: '项目操作',
           icon: ''
         },
         hidden: true,
-        children: [{
+        children: [
+          {
             path: "my-edit1",
             name: "my-router1-1",
             component: () =>

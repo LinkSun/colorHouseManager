@@ -34,6 +34,8 @@ export default {
         }
     },
     mounted() {
+        //    window.sessionStorage.removeItem('bid')
+        window.sessionStorage.setItem('bid',this.$route.params.id)//将值存起来
         this.id = this.$route.params.id
         // console.log(this.$route.params.id)
     },

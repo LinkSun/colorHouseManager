@@ -80,8 +80,12 @@ export default {
         }
     },
     mounted() {
-        // 可以得到id
-        this.form.bid = this.$route.params.id
+        // 可以得到id;
+        this.form.bid = this.$route.params.id;
+     
+        if(this.form.bid==undefined){
+            this.form.bid=window.sessionStorage.getItem('bid')
+        }
         this.getMount();
     },
     methods: {

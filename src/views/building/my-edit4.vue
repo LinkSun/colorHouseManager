@@ -2,11 +2,11 @@
     <!-- 这个页面交互已经完成 -->
     <div>
         <!-- 1 -->
-        <h4 class="title">楼盘信息</h4>
+        <!-- <h4 class="title">楼盘信息</h4> -->
 
         <!-- <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm"> 去除了验证-->
         <el-form :model="ruleForm" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-            <el-form-item label="销售状态:(没)" prop="region">
+            <!-- <el-form-item label="销售状态:(没)" prop="region">
                 <el-select v-model="ruleForm.region" placeholder="请选择活动区域" class="my-input">
 
                     <el-option label="在售" value="shanghai"></el-option>
@@ -23,7 +23,7 @@
 
                 <el-input v-model="ruleForm.name" class="my-input"></el-input>
 
-            </el-form-item>
+            </el-form-item> -->
 
             <!-- 2 -->
             <h4 class="title">销售信息</h4>
@@ -51,10 +51,10 @@
                 <el-input v-model="ruleForm.building_type" class="my-input"></el-input>
 
             </el-form-item>
-            <el-form-item label="产权年限:(没)" prop="name">
+            <!-- <el-form-item label="产权年限:(没)" prop="name">
                 <el-input v-model="ruleForm.name" class="my-input"></el-input>
 
-            </el-form-item>
+            </el-form-item> -->
             <el-form-item label="装修标准:" prop="name">
                 <el-input v-model="ruleForm.renovation" class="my-input"></el-input>
 
